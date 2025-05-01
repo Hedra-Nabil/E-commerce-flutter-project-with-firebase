@@ -25,18 +25,29 @@ This application was built with scalability, clean code, and an intuitive user i
 ## 📸 UI Showcase
 
 <p align="center">
-  <img src="screenshots/1.png" width="170"/>
-  <img src="screenshots/2.png" width="170"/>
-  <img src="screenshots/3.png" width="170"/>
-  <img src="screenshots/4.png" width="170"/>
-  <img src="screenshots/5.png" width="170"/>
+  <img src="s1.jpg" width="170"/>
+  <img src="s2.jpg" width="170"/>
+  <img src="s3.jpg" width="170"/>
+  <img src="s4.jpg" width="170"/>
+  <img src="s5.jpg" width="170"/>
 </p>
 <p align="center">
-  <img src="screenshots/6.png" width="170"/>
-  <img src="screenshots/7.png" width="170"/>
-  <img src="screenshots/8.png" width="170"/>
-  <img src="screenshots/9.png" width="170"/>
-  <img src="screenshots/10.png" width="170"/>
+  <img src="s6.jpg" width="170"/>
+  <img src="s7.jpg" width="170"/>
+  <img src="s8.jpg" width="170"/>
+  <img src="s9.jpg" width="170"/>
+  <img src="s10.jpg" width="170"/>
+</p>
+<p align="center">
+  <img src="s11.jpg" width="170"/>
+  <img src="s12.jpg" width="170"/>
+  <img src="s13.jpg" width="170"/>
+  <img src="s14.jpg" width="170"/>
+  <img src="s15.jpg" width="170"/>
+</p>
+<p align="center">
+  <img src="s16.jpg" width="170"/>
+  <img src="s17.jpg" width="170"/>
 </p>
 
 > 🧠 Built with pixel-perfect design and smooth transitions
