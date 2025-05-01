@@ -1,12 +1,13 @@
 //lotfy
 import 'package:flutter/material.dart';
-import 'package:flutter_proj/utils/app_textstyles.dart' show AppTextStyle, AppTextstyles;
+import 'package:flutter_proj/utils/app_textstyles.dart';
 import '../../models/address.dart';
+
 class AddressCard extends StatelessWidget {
   final Address address;
   final VoidCallback onEdit;
   final VoidCallback onDelete;
-  const AddressCard  ({
+  const AddressCard({
     super.key,
     required this.address,
     required this.onEdit,
@@ -15,16 +16,18 @@ class AddressCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Container (
+    return Container(
       margin: const EdgeInsets.only(bottom: 16),
-      decoration : BoxDecoration(
+      decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: isDark ? Colors.black.withOpacity(0.2) :
-            Colors.grey.withOpacity(0.1),
-            blurRadius:  8 ,
+            color:
+                isDark
+                    ? Colors.black.withOpacity(0.2)
+                    : Colors.grey.withOpacity(0.1),
+            blurRadius: 8,
             offset: const Offset(0, 2),
           ),
         ],
@@ -33,7 +36,7 @@ class AddressCard extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Row (
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
@@ -42,40 +45,47 @@ class AddressCard extends StatelessWidget {
                     color: Theme.of(context).primaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon (
+                  child: Icon(
                     Icons.location_on,
-                    color : Theme.of (context).primaryColor,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start ,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          Text(address.label,
+                          Text(
+                            address.label,
                             style: AppTextstyles.withColor(
                               AppTextstyles.h3,
                               Theme.of(context).textTheme.bodyLarge!.color!,
                             ),
                           ),
-                          if (address.isDefault)...[
-                            const SizedBox(width:8),
+                          if (address.isDefault) ...[
+                            const SizedBox(width: 8),
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8 , vertical: 4),
-                              decoration: BoxDecoration(
-                                  color: Theme.of (context).primaryColor.withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(8)
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
                               ),
-                              child: Text('Default',
+                              decoration: BoxDecoration(
+                                color: Theme.of(
+                                  context,
+                                ).primaryColor.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Text(
+                                'Default',
                                 style: AppTextstyles.withColor(
                                   AppTextstyles.bodysmall,
                                   Theme.of(context).primaryColor,
                                 ),
                               ),
                             ),
-                          ]
+                          ],
                         ],
                       ),
                       const SizedBox(height: 8),
@@ -97,7 +107,7 @@ class AddressCard extends StatelessWidget {
             children: [
               Expanded(
                 child: InkWell(
-                  onTap:onEdit ,
+                  onTap: onEdit,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     child: Row(
@@ -105,11 +115,12 @@ class AddressCard extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.edit_outlined,
-                          color: Theme.of (context).primaryColor,
+                          color: Theme.of(context).primaryColor,
                           size: 20,
                         ),
                         const SizedBox(width: 8),
-                        Text('Edit',
+                        Text(
+                          'Edit',
                           style: AppTextstyles.withColor(
                             AppTextstyles.bodyMedium,
                             Theme.of(context).primaryColor,
@@ -120,13 +131,10 @@ class AddressCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(width: 1,
-                height: 24,
-                color: Colors.grey.shade200,
-              ),
+              Container(width: 1, height: 24, color: Colors.grey.shade200),
               Expanded(
                 child: InkWell(
-                  onTap:onDelete,
+                  onTap: onDelete,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     child: Row(
@@ -138,7 +146,8 @@ class AddressCard extends StatelessWidget {
                           size: 20,
                         ),
                         const SizedBox(width: 8),
-                        Text('Delete',
+                        Text(
+                          'Delete',
                           style: AppTextstyles.withColor(
                             AppTextstyles.bodyMedium,
                             Colors.red,
@@ -150,7 +159,7 @@ class AddressCard extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
