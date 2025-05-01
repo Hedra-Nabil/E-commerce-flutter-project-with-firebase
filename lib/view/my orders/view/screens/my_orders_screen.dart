@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_proj/utils/app_textstyles.dart';
 import 'package:flutter_proj/view/my%20orders/model/order.dart';
 import 'package:flutter_proj/view/my%20orders/repository/order_repository.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import '../widgets/order_card.dart';
 
