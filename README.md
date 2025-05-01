@@ -119,6 +119,7 @@ flutter run
 - 🎯 **[@MennaMohamed312](https://github.com/MennaMohamed312)**
 - 🎯 **[@nagham959](https://github.com/nagham959)**
 - 🎯 **[@YoussefMadkour4112](https://github.com/YoussefMadkour411)**
+- 🎯 **[@Lotfygama1](https://github.com/Lotfygama1)**
 
 > ❤️ Huge thanks to everyone who contributed!
 
