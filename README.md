@@ -21,6 +21,18 @@ This application was built with scalability, clean code, and an intuitive user i
 - 💳 **Payment Integration** *(Coming Soon)*
 
 ---
+## 📲 Try the App
+
+<div align="center">
+
+[![Download for Android](https://img.shields.io/badge/Download-Android%20APK-blue?style=for-the-badge&logo=android)](https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/releases/download/v1.0.0/app-release.apk)
+
+[![TestFlight iOS](https://img.shields.io/badge/TestFlight-iOS-green?style=for-the-badge&logo=apple)](https://testflight.apple.com/join/YOUR_APP_CODE)
+
+</div>
+
+> ⚠️ iOS version requires TestFlight. Android can be installed via direct APK download.
+---
 
 ## 📸 UI Showcase
 
