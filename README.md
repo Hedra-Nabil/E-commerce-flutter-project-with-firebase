@@ -25,29 +25,29 @@ This application was built with scalability, clean code, and an intuitive user i
 ## 📸 UI Showcase
 
 <p align="center">
-  <img src="s1.jpg" width="170"/>
-  <img src="s2.jpg" width="170"/>
-  <img src="s3.jpg" width="170"/>
-  <img src="s4.jpg" width="170"/>
-  <img src="s5.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s1.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s2.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s3.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s4.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s5.jpg" width="170"/>
 </p>
 <p align="center">
-  <img src="s6.jpg" width="170"/>
-  <img src="s7.jpg" width="170"/>
-  <img src="s8.jpg" width="170"/>
-  <img src="s9.jpg" width="170"/>
-  <img src="s10.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s6.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s7.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s8.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s9.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s10.jpg" width="170"/>
 </p>
 <p align="center">
-  <img src="s11.jpg" width="170"/>
-  <img src="s12.jpg" width="170"/>
-  <img src="s13.jpg" width="170"/>
-  <img src="s14.jpg" width="170"/>
-  <img src="s15.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s11.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s12.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s13.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s14.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s15.jpg" width="170"/>
 </p>
 <p align="center">
-  <img src="s16.jpg" width="170"/>
-  <img src="s17.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s16.jpg" width="170"/>
+  <img src="https://github.com/Hedra-Nabil/E-commerce-flutter-project-with-firebase/blob/pho/s17.jpg" width="170"/>
 </p>
 
 > 🧠 Built with pixel-perfect design and smooth transitions
