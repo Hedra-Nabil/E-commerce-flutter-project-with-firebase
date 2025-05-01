@@ -103,9 +103,10 @@ flutter run
 
 > Built by a passionate team of developers who believe in performance, design, and clean code.
 
-- 🎯 **[@Hedra-Nabil](https://github.com/Hedra-Nabil)** – Project Lead, Flutter Architecture, UI/UX, Product Logic
-- 🔐 **[@Collaborator1](https://github.com/Collaborator1)** – Firebase Integration, Authentication Flows
-- 🔍 **[@Collaborator2](https://github.com/Collaborator2)** – Filters, Order System, Notification Handling
+- 🎯 **[@Hedra-Nabil](https://github.com/Hedra-Nabil)**
+- 🎯 **[@MennaMohamed312](https://github.com/MennaMohamed312)**
+- 🎯 **[@nagham959](https://github.com/nagham959)**
+- 🎯 **[@YoussefMadkour4112](https://github.com/YoussefMadkour411)**
 
 > ❤️ Huge thanks to everyone who contributed!
 
