@@ -138,7 +138,7 @@ If you found this project useful, feel free to give it a ⭐ — it helps others
 
 ## 📬 Contact
 
-**Alex Taha**  
+**Hedra Nabil**  
 📧 hedranabil614@gmail.com 
 🔗 [LinkedIn]([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/hedra-nabil-6043221a4)  
 🧑‍💻 Flutter Developer — Available for Freelance & Remote Work
