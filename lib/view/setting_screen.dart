@@ -1,10 +1,9 @@
 //settings_screen
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_proj/controllers/theme_controller.dart';
+import 'package:flutter_proj/utils/app_textstyles.dart';
 import 'package:get/get.dart';
-
-import '../controllers/theme_controller.dart';
-import '../utils/app_textstyles.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -56,7 +55,7 @@ class SettingsScreen extends StatelessWidget {
               __buildNavigationTile(
                 context,
                 'privacy policy',
-                'View our privecy po;icy',
+                'View our privecy policy',
                 Icons.privacy_tip_outlined,
               ),
               __buildNavigationTile(
@@ -81,10 +80,10 @@ class SettingsScreen extends StatelessWidget {
   }
 
   Widget __buildSection(
-      BuildContext context,
-      String title,
-      List<Widget> children,
-      ) {
+    BuildContext context,
+    String title,
+    List<Widget> children,
+  ) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,49 +109,49 @@ class SettingsScreen extends StatelessWidget {
     return GetBuilder<ThemeController>(
       builder:
           (controller) => Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color:
-              !isDark
-                  ? Colors.grey.withOpacity(0.1)
-                  : Colors.black.withOpacity(0.2),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color:
+                      !isDark
+                          ? Colors.grey.withOpacity(0.1)
+                          : Colors.black.withOpacity(0.2),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
-          ],
-        ),
-        child: ListTile(
-          leading: Icon(
-            controller.isDarkMode ? Icons.dark_mode : Icons.light_mode,
-            color: Theme.of(context).primaryColor,
-          ),
-          title: Text(
-            'Dark Mode',
-            style: AppTextstyles.withColor(
-              AppTextstyles.bodyMedium,
-              Theme.of(context).textTheme.bodyLarge!.color!,
+            child: ListTile(
+              leading: Icon(
+                controller.isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                color: Theme.of(context).primaryColor,
+              ),
+              title: Text(
+                'Dark Mode',
+                style: AppTextstyles.withColor(
+                  AppTextstyles.bodyMedium,
+                  Theme.of(context).textTheme.bodyLarge!.color!,
+                ),
+              ),
+              trailing: Switch.adaptive(
+                value: controller.isDarkMode,
+                onChanged: (Value) => controller.toggleTheme(),
+                activeColor: Theme.of(context).primaryColor,
+              ),
             ),
           ),
-          trailing: Switch.adaptive(
-            value: controller.isDarkMode,
-            onChanged: (Value) => controller.toggleTheme(),
-            activeColor: Theme.of(context).primaryColor,
-          ),
-        ),
-      ),
     );
   }
 
   Widget __buildSwithchTile(
-      BuildContext context,
-      String title,
-      String subtitle,
-      bool initialValue,
-      ) {
+    BuildContext context,
+    String title,
+    String subtitle,
+    bool initialValue,
+  ) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
@@ -163,9 +162,9 @@ class SettingsScreen extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color:
-            !isDark
-                ? Colors.grey.withOpacity(0.1)
-                : Colors.black.withOpacity(0.2),
+                !isDark
+                    ? Colors.grey.withOpacity(0.1)
+                    : Colors.black.withOpacity(0.2),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -196,11 +195,11 @@ class SettingsScreen extends StatelessWidget {
   }
 
   Widget __buildNavigationTile(
-      BuildContext context,
-      String title,
-      String subtitle,
-      IconData icon,
-      ) {
+    BuildContext context,
+    String title,
+    String subtitle,
+    IconData icon,
+  ) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
@@ -211,9 +210,9 @@ class SettingsScreen extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color:
-            !isDark
-                ? Colors.grey.withOpacity(0.1)
-                : Colors.black.withOpacity(0.2),
+                !isDark
+                    ? Colors.grey.withOpacity(0.1)
+                    : Colors.black.withOpacity(0.2),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),

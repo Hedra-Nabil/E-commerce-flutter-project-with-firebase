@@ -1,7 +1,7 @@
 //Nagham
 import 'package:flutter/material.dart';
+import 'package:flutter_proj/utils/app_textstyles.dart';
 
-import '../../utils/app_textstyles.dart';
 class CustomTextfield extends StatefulWidget {
   final String label;
   final IconData prefixIcon;

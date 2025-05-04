@@ -2,10 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_proj/controllers/auth_controller.dart';
 import 'package:flutter_proj/utils/app_textstyles.dart';
+import 'package:flutter_proj/view/edit_profile_screen.dart';
 import 'package:flutter_proj/view/my%20orders/view/screens/my_orders_screen.dart';
 import 'package:flutter_proj/view/settings_screen.dart';
+import 'package:flutter_proj/view/shipping_address_screen.dart';
 import 'package:flutter_proj/view/sign_up_screen.dart';
 import 'package:get/get.dart';
+
+import 'help center/view/screens/help_center_screen.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -79,7 +83,7 @@ class AccountScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () => Get.to(() => EditProfileScreen()),
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
               side: BorderSide(color: isDark ? Colors.white : Colors.black),
@@ -157,9 +161,10 @@ class AccountScreen extends StatelessWidget {
                       // تصحيح: My order بدلاً من My orders
                       // navigation to my orders screen
                     } else if (item['title'] == 'Shipping Address') {
+                      Get.to(() => ShippingAddressScreen());
                       // navigation to Shipping Address
                     } else if (item['title'] == 'Help Center') {
-                      // تصحيح: Help بدلاً من Helap
+                      Get.to(() => HelpCenterScreen());
                       // navigation to Help Center
                     }
                   },

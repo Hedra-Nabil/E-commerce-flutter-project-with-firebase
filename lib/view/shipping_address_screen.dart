@@ -1,10 +1,11 @@
 //lotfy
 import 'package:flutter/material.dart';
+import 'package:flutter_proj/models/address.dart';
+import 'package:flutter_proj/models/repositories/address_repositories.dart';
 import 'package:flutter_proj/utils/app_textstyles.dart';
 import 'package:flutter_proj/view/widgets/address_card.dart';
 import 'package:get/get.dart';
-import '../models/address.dart';
-import '../models/repositories/address_repositories.dart';
+
 class ShippingAddressScreen extends StatelessWidget {
   final AddressRepository _repository = AddressRepository();
   ShippingAddressScreen({super.key});

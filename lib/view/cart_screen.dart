@@ -1,5 +1,6 @@
 //Menna
 import 'package:flutter/material.dart';
+import 'package:flutter_proj/view/checkout/screens/checkout_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter_proj/models/product.dart';
 import '../utils/app_textstyles.dart';
@@ -296,9 +297,8 @@ class CartScreen extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {
-                //navigate to checkout screen
-              },
+              onPressed: () => Get.to(()=> const CheckoutScreen()),
+              
               style: ElevatedButton.styleFrom(
                 backgroundColor: Theme.of(context).primaryColor,
                 padding: const EdgeInsets.symmetric(vertical: 16),

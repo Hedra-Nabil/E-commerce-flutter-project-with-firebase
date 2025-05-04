@@ -1,7 +1,8 @@
 //lotfy
 import 'package:flutter/material.dart';
+import 'package:flutter_proj/models/address.dart';
 import 'package:flutter_proj/utils/app_textstyles.dart';
-import '../../models/address.dart';
+
 
 class AddressCard extends StatelessWidget {
   final Address address;

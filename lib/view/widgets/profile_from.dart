@@ -1,7 +1,8 @@
 //Nagham
 import 'package:flutter/material.dart';
+import 'package:flutter_proj/utils/app_textstyles.dart';
 import 'package:flutter_proj/view/widgets/custom_textfield.dart';
-import '../../utils/app_textstyles.dart';
+
 
 class ProfileFrom extends StatelessWidget {
   const ProfileFrom({super.key});

@@ -1,10 +1,11 @@
 //Nagham
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_proj/utils/app_textstyles.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../utils/app_textstyles.dart';
+
 
 class ProfileImage extends StatelessWidget {
   const ProfileImage({super.key});
