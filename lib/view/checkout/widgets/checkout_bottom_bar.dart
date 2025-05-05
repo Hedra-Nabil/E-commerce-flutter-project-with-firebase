@@ -1,6 +1,5 @@
 import 'package:flutter_proj/utils/app_textstyles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_proj/utils/app_themes.dart';
 
 class CheckoutBottomBar extends StatelessWidget {
   final double totalAmount;

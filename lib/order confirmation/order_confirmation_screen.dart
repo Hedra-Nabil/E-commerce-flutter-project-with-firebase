@@ -1,6 +1,7 @@
 import 'package:flutter_proj/utils/app_textstyles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_proj/view/home_screen.dart';
+import 'package:flutter_proj/view/main_screen.dart';
 import 'package:flutter_proj/view/my%20orders/view/screens/my_orders_screen.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -75,7 +76,7 @@ class OrderConfirmationScreen extends StatelessWidget {
               const SizedBox(height: 16),
               TextButton(
                 onPressed: () {
-                  Get.to(() => HomeScreen());
+                  Get.to(() => MainScreen());
                 },
                 child: Text(
                   'Continue Shopping',

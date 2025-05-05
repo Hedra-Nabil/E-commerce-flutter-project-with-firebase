@@ -1,10 +1,10 @@
-//settings_screen
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_proj/controllers/theme_controller.dart';
 import 'package:flutter_proj/utils/app_textstyles.dart';
+import 'package:flutter_proj/view/privacy%20policy/views/screens/terms_of_service_screen.dart';
 import 'package:get/get.dart';
+
+import 'privacy policy/views/screens/privacy_policy_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -41,7 +41,7 @@ class SettingsScreen extends StatelessWidget {
               __buildSwithchTile(
                 context,
                 'Push Notifications',
-                'Receive push Notifications about arders and promotions ',
+                'Receive push Notifications about orders and promotions',
                 true,
               ),
               __buildSwithchTile(
@@ -51,19 +51,23 @@ class SettingsScreen extends StatelessWidget {
                 false,
               ),
             ]),
-
             __buildSection(context, 'Privacy', [
               __buildNavigationTile(
                 context,
-                'privacy policy',
-                'View our privecy po;icy',
+                'Privacy Policy',
+                'View our privacy policy',
                 Icons.privacy_tip_outlined,
+                onTap:
+                    () => Get.to(
+                      () => const PrivacyPolicyScreen(),
+                    ), // تصحيح الـ onTap
               ),
               __buildNavigationTile(
                 context,
-                'Terms of Service ',
+                'Terms of Service',
                 'Read our Terms of Service',
                 Icons.description_outlined,
+                onTap: () => Get.to(() => const TemsOfServiceScreen()),
               ),
             ]),
             __buildSection(context, 'About', [
@@ -72,6 +76,7 @@ class SettingsScreen extends StatelessWidget {
                 'App Version',
                 '1.0.0',
                 Icons.info_outline,
+                //onTap: () => Get.to(() => const PrivacyPolicyScreen()),
               ),
             ]),
           ],
@@ -199,47 +204,50 @@ class SettingsScreen extends StatelessWidget {
     BuildContext context,
     String title,
     String subtitle,
-    IconData icon,
-  ) {
+    IconData icon, {
+    VoidCallback? onTap,
+  }) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color:
-                !isDark
-                    ? Colors.grey.withOpacity(0.1)
-                    : Colors.black.withOpacity(0.2),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
+    return GestureDetector(
+      onTap: onTap, // تأكد من أن onTap يتم تنفيذه بشكل صحيح هنا
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color:
+                  !isDark
+                      ? Colors.grey.withOpacity(0.1)
+                      : Colors.black.withOpacity(0.2),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: ListTile(
+          leading: Icon(icon, color: Theme.of(context).primaryColor),
+          title: Text(
+            title,
+            style: AppTextstyles.withColor(
+              AppTextstyles.bodyMedium,
+              Theme.of(context).textTheme.bodyLarge!.color!,
+            ),
           ),
-        ],
-      ),
-      child: ListTile(
-        leading: Icon(icon, color: Theme.of(context).primaryColor),
-        title: Text(
-          title,
-          style: AppTextstyles.withColor(
-            AppTextstyles.bodyMedium,
-            Theme.of(context).textTheme.bodyLarge!.color!,
+          subtitle: Text(
+            subtitle,
+            style: AppTextstyles.withColor(
+              AppTextstyles.bodyMedium,
+              Theme.of(context).textTheme.bodyLarge!.color!,
+            ),
+          ),
+          trailing: Icon(
+            Icons.chevron_right,
+            color: isDark ? Colors.grey[400]! : Colors.grey[600]!,
           ),
         ),
-        subtitle: Text(
-          subtitle,
-          style: AppTextstyles.withColor(
-            AppTextstyles.bodyMedium,
-            Theme.of(context).textTheme.bodyLarge!.color!,
-          ),
-        ),
-        trailing: Icon(
-          Icons.chevron_right,
-          color: isDark ? Colors.grey[400]! : Colors.grey[600]!,
-        ),
-        onTap: () {},
       ),
     );
   }
