@@ -5,9 +5,22 @@ import 'package:flutter_proj/utils/app_textstyles.dart';
 import 'package:share_plus/share_plus.dart';
 import 'Widgets/size_selector.dart';
 
-class ProductDetialsScreen extends StatelessWidget {
+class ProductDetailsScreen extends StatefulWidget {
   final Product product;
-  const ProductDetialsScreen({super.key, required this.product});
+  const ProductDetailsScreen({super.key, required this.product});
+
+  @override
+  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
+}
+
+class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  late bool isFavorite;
+
+  @override
+  void initState() {
+    super.initState();
+    isFavorite = widget.product.isFavorite;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,31 +28,31 @@ class ProductDetialsScreen extends StatelessWidget {
     final screenHeight = screenSize.height;
     final screenWidth = screenSize.width;
     final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back,
+          icon: Icon(Icons.arrow_back,
             color: isDark ? Colors.white : Colors.black,
           ),
         ),
         title: Text(
           'Details',
-          style: AppTextstyles.withColor(
-            AppTextstyles.h2,
-            isDark ? Colors.white : Colors.black,
-          ),
+          style: AppTextstyles.withColor(AppTextstyles.h2,
+              isDark ? Colors.white : Colors.black),
         ),
         actions: [
           IconButton(
-            onPressed:
-                () => _shareProduct(context, product.name, product.description),
-            icon: Icon(
-              Icons.share,
+            onPressed: () => _shareProduct(
+              context,
+              widget.product.name,
+              widget.product.description,
+            ),
+            icon: Icon(Icons.share,
               color: isDark ? Colors.white : Colors.black,
             ),
-          ),
+          )
         ],
       ),
       body: SingleChildScrollView(
@@ -49,29 +62,33 @@ class ProductDetialsScreen extends StatelessWidget {
             Stack(
               children: [
                 AspectRatio(
-                  aspectRatio: 16 / 9,
-                  child: Image.asset(product.imageUrl, fit: BoxFit.cover),
+                  aspectRatio: 16/9,
+                  child: Image.asset(widget.product.imageUrl,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Positioned(
+                  right: 10,
+                  top: 10,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        isFavorite = !isFavorite;
+                        widget.product.isFavorite = isFavorite;
+                      });
+                    },
                     icon: Icon(
-                      product.isFavorite
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color:
-                          product.isFavorite
-                              ? Theme.of(context).primaryColor
-                              : (isDark ? Colors.white : Colors.black),
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: isFavorite
+                          ? Colors.red 
+                          : (isDark ? Colors.white : Colors.black),
                     ),
                   ),
                 ),
               ],
             ),
-
-            //product details
             Padding(
-              padding: EdgeInsets.all(screenWidth * 0.04),
+              padding: EdgeInsets.all(screenWidth*0.04),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -80,55 +97,42 @@ class ProductDetialsScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          product.name,
-                          style: AppTextstyles.withColor(
-                            AppTextstyles.h2,
-                            Theme.of(context).textTheme.headlineMedium!.color!,
-                          ),
+                          widget.product.name,
+                          style: AppTextstyles.withColor(AppTextstyles.h2,
+                              Theme.of(context).textTheme.headlineMedium!.color!),
                         ),
                       ),
                       Text(
-                        '\$${product.price.toStringAsFixed(2)}',
-                        style: AppTextstyles.withColor(
-                          AppTextstyles.h2,
-                          Theme.of(context).textTheme.headlineMedium!.color!,
-                        ),
+                        '\$${widget.product.price.toStringAsFixed(2)}',
+                        style: AppTextstyles.withColor(AppTextstyles.h2,
+                            Theme.of(context).textTheme.headlineMedium!.color!),
                       ),
                     ],
                   ),
                   Text(
-                    product.category,
-                    style: AppTextstyles.withColor(
-                      AppTextstyles.bodyMedium,
-                      isDark ? Colors.grey[400]! : Colors.grey[600]!,
-                    ),
+                    widget.product.category,
+                    style: AppTextstyles.withColor(AppTextstyles.bodyMedium,
+                        isDark ? Colors.grey[400]! : Colors.grey[600]!),
                   ),
-                  SizedBox(height: screenHeight * 0.02),
+                  SizedBox(height: screenHeight*0.02),
                   Text(
                     'Select size',
-                    style: AppTextstyles.withColor(
-                      AppTextstyles.labelMeduim,
-                      Theme.of(context).textTheme.bodyLarge!.color!,
-                    ),
+                    style: AppTextstyles.withColor(AppTextstyles.labelMeduim,
+                        Theme.of(context).textTheme.bodyLarge!.color!),
                   ),
-                  SizedBox(height: screenHeight * 0.01),
-                  //size selector
+                  SizedBox(height: screenHeight*0.01),
                   const SizeSelector(),
-                  SizedBox(height: screenHeight * 0.02),
+                  SizedBox(height: screenHeight*0.02),
                   Text(
                     'Description',
-                    style: AppTextstyles.withColor(
-                      AppTextstyles.labelMeduim,
-                      Theme.of(context).textTheme.bodyLarge!.color!,
-                    ),
+                    style: AppTextstyles.withColor(AppTextstyles.labelMeduim,
+                        Theme.of(context).textTheme.bodyLarge!.color!),
                   ),
-                  SizedBox(height: screenHeight * 0.01),
+                  SizedBox(height: screenHeight*0.01),
                   Text(
-                    product.description,
-                    style: AppTextstyles.withColor(
-                      AppTextstyles.bodysmall,
-                      isDark ? Colors.grey[400]! : Colors.grey[600]!,
-                    ),
+                    widget.product.description,
+                    style: AppTextstyles.withColor(AppTextstyles.bodysmall,
+                        isDark ? Colors.grey[400]! : Colors.grey[600]!),
                   ),
                 ],
               ),
@@ -136,50 +140,41 @@ class ProductDetialsScreen extends StatelessWidget {
           ],
         ),
       ),
-      //buttons
       bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(screenWidth * 0.04),
+          padding: EdgeInsets.all(screenWidth*0.04),
           child: Row(
             children: [
-              //Add to cart button
               Expanded(
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: (){},
                   style: OutlinedButton.styleFrom(
                     padding: EdgeInsets.symmetric(
-                      vertical: screenHeight * 0.02,
+                      vertical: screenHeight*0.02,
                     ),
                     side: BorderSide(
                       color: isDark ? Colors.white70 : Colors.black12,
                     ),
                   ),
-                  child: Text(
-                    'Add To Cart',
-                    style: AppTextstyles.withColor(
-                      AppTextstyles.buttonMeduim,
-                      Theme.of(context).textTheme.bodyLarge!.color!,
-                    ),
+                  child: Text('Add To Cart',
+                    style: AppTextstyles.withColor(AppTextstyles.buttonMeduim,
+                        Theme.of(context).textTheme.bodyLarge!.color!),
                   ),
                 ),
               ),
-              SizedBox(width: screenWidth * 0.04),
-              //Buy button
+              SizedBox(width: screenWidth*0.04),
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: (){},
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
-                      vertical: screenHeight * 0.02,
-                    ),
-                    backgroundColor: Theme.of(context).primaryColor,
+                      padding: EdgeInsets.symmetric(
+                        vertical: screenHeight*0.02,
+                      ),
+                      backgroundColor: Theme.of(context).primaryColor
                   ),
-                  child: Text(
-                    'Buy Now',
-                    style: AppTextstyles.withColor(
-                      AppTextstyles.buttonMeduim,
-                      Colors.white,
-                    ),
+                  child: Text('Buy Now',
+                    style: AppTextstyles.withColor(AppTextstyles.buttonMeduim,
+                        Colors.white),
                   ),
                 ),
               ),
@@ -190,13 +185,11 @@ class ProductDetialsScreen extends StatelessWidget {
     );
   }
 
-  //share product
   Future<void> _shareProduct(
-    BuildContext context,
-    String productName,
-    String description,
-  ) async {
-    //get the render box for share position origin(required for iPad)
+      BuildContext context,
+      String productName,
+      String description,
+      ) async {
     final box = context.findRenderObject() as RenderBox?;
     const String shopLink = 'https://shop.com/product/cotton-tshirt';
     final String shareMessage = '$description\n\nShop now at $shopLink';
