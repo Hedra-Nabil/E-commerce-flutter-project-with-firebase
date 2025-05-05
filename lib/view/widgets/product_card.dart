@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_proj/models/product.dart';
 import 'package:flutter_proj/utils/app_textstyles.dart';
-
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final Product product;
   const ProductCard({super.key, required this.product});
+
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  late bool isFavorite;
+
+  @override
+  void initState() {
+    super.initState();
+    isFavorite = widget.product.isFavorite;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +30,7 @@ class ProductCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color:
-                isDark
-                    ? Colors.black.withOpacity(0.3)
-                    : Colors.grey.withOpacity(0.1),
+            color: isDark ? Colors.black.withOpacity(0.3) : Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 2),
@@ -33,7 +42,7 @@ class ProductCard extends StatelessWidget {
         children: [
           Stack(
             children: [
-              //image
+              // Image
               AspectRatio(
                 aspectRatio: 16 / 9,
                 child: ClipRRect(
@@ -41,43 +50,45 @@ class ProductCard extends StatelessWidget {
                     top: Radius.circular(12),
                   ),
                   child: Image.asset(
-                    product.imageUrl,
+                    widget.product.imageUrl,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              //favorite button
+              // Favorite button
               Positioned(
                 right: 8,
                 top: 8,
                 child: IconButton(
                   icon: Icon(
-                    product.isFavorite ? Icons.favorite : Icons.favorite_border,
-                    color:
-                        product.isFavorite
-                            ? Theme.of(context).primaryColor
-                            : isDark
-                            ? Colors.grey[400]
-                            : Colors.grey,
+                    isFavorite ? Icons.favorite : Icons.favorite_border,
+                    color: isFavorite
+                        ? Colors.red 
+                        : (isDark ? Colors.grey[400] : Colors.grey),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      isFavorite = !isFavorite;
+                      widget.product.isFavorite = isFavorite;
+                    });
+                    
+                  },
                 ),
               ),
-              if (product.oldprice != null)
+              // Discount badge
+              if (widget.product.oldprice != null)
                 Positioned(
                   left: 8,
                   top: 8,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
                       color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(4),
                     ),
-
-                    // discount text
                     child: Text(
-                      '${calculateDiscount(product.price, product.oldprice!)}% OFF',
+                      '${calculateDiscount(widget.product.price, widget.product.oldprice!)}% OFF',
                       style: AppTextstyles.withColor(
                         AppTextstyles.withWeight(
                           AppTextstyles.bodysmall,
@@ -90,14 +101,14 @@ class ProductCard extends StatelessWidget {
                 ),
             ],
           ),
-          //product details
+          // Product details
           Padding(
             padding: EdgeInsets.all(screenWidth * 0.02),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  product.name,
+                  widget.product.name,
                   style: AppTextstyles.withColor(
                     AppTextstyles.withWeight(AppTextstyles.h3, FontWeight.bold),
                     Theme.of(context).textTheme.bodyLarge!.color!,
@@ -107,7 +118,7 @@ class ProductCard extends StatelessWidget {
                 ),
                 SizedBox(height: screenWidth * 0.01),
                 Text(
-                  product.category,
+                  widget.product.category,
                   style: AppTextstyles.withColor(
                     AppTextstyles.bodyMedium,
                     isDark ? Colors.grey[400]! : Colors.grey[600]!,
@@ -117,7 +128,7 @@ class ProductCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '\$${product.price.toStringAsFixed(2)}',
+                      '\$${widget.product.price.toStringAsFixed(2)}',
                       style: AppTextstyles.withColor(
                         AppTextstyles.withWeight(
                           AppTextstyles.bodylarge,
@@ -126,10 +137,10 @@ class ProductCard extends StatelessWidget {
                         Theme.of(context).textTheme.bodyLarge!.color!,
                       ),
                     ),
-                    if (product.oldprice != null) ...[
+                    if (widget.product.oldprice != null) ...[
                       SizedBox(width: screenWidth * 0.01),
                       Text(
-                        '\$${product.oldprice!.toStringAsFixed(2)}',
+                        '\$${widget.product.oldprice!.toStringAsFixed(2)}',
                         style: AppTextstyles.withColor(
                           AppTextstyles.bodysmall,
                           isDark ? Colors.grey[400]! : Colors.grey[600]!,
@@ -146,7 +157,7 @@ class ProductCard extends StatelessWidget {
     );
   }
 
-  // calculate discount
+  // Calculate discount
   int calculateDiscount(double currentPrice, double oldPrice) {
     return (((oldPrice - currentPrice) / oldPrice) * 100).round();
   }
