@@ -2,9 +2,14 @@ import 'package:flutter_proj/utils/app_textstyles.dart';
 import 'package:flutter/material.dart';
 import '../models/product.dart';
 
-class WishlistScreen extends StatelessWidget {
+class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});
 
+  @override
+  State<WishlistScreen> createState() => _WishlistScreenState();
+}
+
+class _WishlistScreenState extends State<WishlistScreen> {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
@@ -15,7 +20,7 @@ class WishlistScreen extends StatelessWidget {
         title: Text(
           'My Wishlist',
           style: AppTextstyles.withColor(
-            AppTextstyles.h3,
+            AppTextstyles.h2,
             isDark ? Colors.white : Colors.black,
           ),
         ),
@@ -38,7 +43,7 @@ class WishlistScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
-                (context, index) => _buildWishlistItem(
+                    (context, index) => _buildWishlistItem(
                   context,
                   products.where((p) => p.isFavorite).toList()[index],
                 ),
@@ -112,10 +117,7 @@ class WishlistScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color:
-                isDark
-                    ? Colors.black.withOpacity(0.2)
-                    : Colors.grey.withOpacity(0.1),
+            color: isDark ? Colors.black.withOpacity(0.2) : Colors.grey.withOpacity(0.1),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -170,18 +172,35 @@ class WishlistScreen extends StatelessWidget {
                       Row(
                         children: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              // إضافة المنتج إلى السلة
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('${product.name} added to cart'),
+                                  duration: const Duration(seconds: 2),
+                                ),
+                              );
+                            },
                             icon: Icon(
                               Icons.shopping_cart_outlined,
                               color: Theme.of(context).primaryColor,
                             ),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                product.isFavorite = false; // إزالة من المفضلة
+                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('${product.name} removed from wishlist'),
+                                  duration: const Duration(seconds: 2),
+                                ),
+                              );
+                            },
                             icon: Icon(
                               Icons.delete_outlined,
-                              color:
-                                  isDark ? Colors.grey[400] : Colors.grey[600],
+                              color: isDark ? Colors.grey[400] : Colors.grey[600],
                             ),
                           ),
                         ],
